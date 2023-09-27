@@ -1,0 +1,54 @@
+.close{
+-fx-background-color: #7fb3d5;
+-fx-background-radius: 30;
+}
+.close:hover{
+-fx-background-color: grey;
+-fx-background-radius: 30;
+}
+
+.dash{
+-fx-background-color: grey;
+-fx-background-radius: 30;
+}
+
+.dash:hover{
+-fx-background-color: #2e3267;
+-fx-background-radius: 30;
+}
+
+.employee,.sales,.inventory,.reservation,.rewards{
+-fx-background-color: #7fb3d5;
+-fx-background-radius: 30;
+}
+
+.employee:hover{
+-fx-background-color: grey;
+-fx-background-radius: 30;
+}
+.sales:hover{
+-fx-background-color: grey;
+-fx-background-radius: 30;
+}
+.inventory:hover{
+-fx-background-color: grey;
+-fx-background-radius: 30;
+}
+.reservation:hover{
+-fx-background-color: grey;
+-fx-background-radius: 30;
+}
+.rewards:hover{
+-fx-background-color: grey;
+-fx-background-radius: 30;
+}
+
+.log{
+-fx-background-color: #7fb3d5;
+-fx-background-radius: 30;
+}
+
+.log:hover{
+-fx-background-color: grey;
+-fx-background-radius: 30;
+}

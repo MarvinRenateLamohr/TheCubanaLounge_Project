@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="inventoryPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1120.0" style="-fx-background-color: #2e3267;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="za.co.marvinlamohr.thecubanalounge.InventoryManagementController">
+   <children>
+      <Label fx:id="titleLabel" alignment="CENTER" graphicTextGap="10.0" layoutY="12.0" prefHeight="35.0" prefWidth="1120.0" text="Inventory Management" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="DATABASE" />
+         </graphic></Label>
+      <Button fx:id="closeButton" layoutX="1076.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeButtonOnAction" prefHeight="30.0" prefWidth="30.0" styleClass="close" stylesheets="@styles.css">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="14.0" textAlignment="CENTER" />
+         </graphic>
+      </Button>
+      <AnchorPane layoutX="190.0" layoutY="72.0" prefHeight="235.0" prefWidth="255.0">
+         <children>
+            <VBox layoutX="15.0" prefHeight="170.0" prefWidth="225.0">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label fx:id="inventoryItemIdLabel" text="Item ID" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="inventoryItemIdRequiredLabel" textFill="RED">
+                           <HBox.margin>
+                              <Insets left="124.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="inventoryItemIdTextField" promptText="Item ID" />
+                  <HBox>
+                     <children>
+                        <Label fx:id="inventoryItemNameLabel" text="Item Name" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="inventoryItemNameRequiredLabel" textFill="RED">
+                           <HBox.margin>
+                              <Insets left="103.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="inventoryItemNameTextField" promptText="Item Name" />
+                  <HBox>
+                     <children>
+                        <Label fx:id="inventoryItemPriceLabel" text="Item Price" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="inventoryItemPriceRequiredLabel" textFill="RED">
+                           <HBox.margin>
+                              <Insets left="108.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="inventoryItemPriceTextField" promptText="Item Price" />
+                  <HBox>
+                     <children>
+                        <Label fx:id="inventoryItemCategoryLabel" text="Item Category" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="inventoryItemCategoryRequiredLabel" textFill="RED">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ComboBox fx:id="inventoryItemCategoryComboBox" editable="true" prefWidth="150.0" promptText="Select" />
+               </children>
+            </VBox>
+            <Button fx:id="createInventoryButton" layoutX="14.0" layoutY="180.0" mnemonicParsing="false" onAction="#createInventoryButtonOnAction" prefHeight="30.0" prefWidth="53.0" styleClass="inventory" stylesheets="@styles.css" text="Create" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="updateInventoryButton" layoutX="77.0" layoutY="180.0" mnemonicParsing="false" onAction="#updateInventoryButtonOnAction" prefHeight="30.0" prefWidth="58.0" styleClass="inventory" stylesheets="@styles.css" text="Update" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="cancelButton" layoutX="145.0" layoutY="180.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="30.0" prefWidth="53.0" styleClass="inventory" stylesheets="@styles.css" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="482.0" layoutY="75.0" prefHeight="517.0" prefWidth="450.0">
+         <children>
+            <TextField fx:id="inventorySearchTextField" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="350.0" promptText="Search" />
+            <Button fx:id="searchInventoryButton" layoutX="374.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchInventoryButtonOnAction" styleClass="inventory" stylesheets="@styles.css">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="16.0" />
+               </graphic>
+            </Button>
+            <TableView fx:id="displayInventoryTable" layoutX="14.0" layoutY="56.0" onMouseClicked="#inventorySelected" prefHeight="415.0" prefWidth="420.0">
+              <columns>
+                <TableColumn fx:id="inventoryItemId" prefWidth="75.0" text="Item ID" />
+                <TableColumn fx:id="inventoryItemName" prefWidth="140.0" text="Item Name" />
+                  <TableColumn fx:id="inventoryItemPrice" prefWidth="85.0" text="Item Price" />
+                  <TableColumn fx:id="inventoryItemCategory" prefWidth="119.0" text="Item Category" />
+              </columns>
+            </TableView>
+            <Button fx:id="inventoryShowButton" layoutX="15.0" layoutY="482.0" mnemonicParsing="false" onAction="#inventoryShowButtonOnAction" prefHeight="30.0" prefWidth="240.0" styleClass="inventory" stylesheets="@styles.css" text="Inventory" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="deleteInventoryButton" layoutX="265.0" layoutY="482.0" mnemonicParsing="false" onAction="#deleteInventoryButtonOnAction" prefHeight="30.0" prefWidth="60.0" styleClass="inventory" stylesheets="@styles.css" text="Delete" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="clearTableButton" layoutX="335.0" layoutY="482.0" mnemonicParsing="false" onAction="#clearTableInventoryButtonOnAction" prefHeight="30.0" prefWidth="60.0" styleClass="inventory" stylesheets="@styles.css" text="Clear" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label fx:id="inventoryItemIdLabel1" layoutX="497.0" layoutY="72.0" text="Item Search" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

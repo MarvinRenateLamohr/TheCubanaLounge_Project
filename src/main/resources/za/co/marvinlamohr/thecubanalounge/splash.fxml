@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="splashPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #7fb3d5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="za.co.marvinlamohr.thecubanalounge.SplashController">
+   <children>
+      <ImageView fx:id="brandingImageView" fitHeight="180.0" fitWidth="300.0" layoutX="150.0" layoutY="73.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../../../../assets/TheCubanaLounge.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="brandLabel" layoutX="128.0" layoutY="253.0" text="The Cubana Lounge" textFill="WHITE">
+         <font>
+            <Font name="Rage Italic" size="48.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

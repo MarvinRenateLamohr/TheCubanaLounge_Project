@@ -1,0 +1,117 @@
+=====================
+General Requirements:
+============================================
+*WampServer must be Installed & Running
+*MySQL Workbench must be Installed & Running
+============================================
+
+=============================
+MySQL Workbench Instructions:
+=============================
+1.Add Database: 
+
+CREATE SCHEMA `thecubanalounge_db` ;
+
+2.Add Database Tables:
+
+CREATE TABLE `thecubanalounge_db`.`employee` (
+`employeeId` VARCHAR(45) NOT NULL,
+`employeeFirstName` VARCHAR(45) NOT NULL,
+`employeeLastName` VARCHAR(45) NOT NULL,
+`employeeGender` VARCHAR(45) NOT NULL,
+`employeeContactNumber` VARCHAR(45) NOT NULL,
+`employeePosition` VARCHAR(45) NOT NULL,
+`employeeRole` VARCHAR(45) NOT NULL,
+`employeeSalary` DOUBLE NOT NULL,
+`employeeUsername` VARCHAR(45) NOT NULL,
+`employeePassword` VARCHAR(45) NOT NULL,
+PRIMARY KEY (`employeeId`),
+UNIQUE INDEX `employeeId_UNIQUE` (`employeeId` ASC),
+UNIQUE INDEX `employeeContactNumber_UNIQUE` (`employeeContactNumber` ASC),
+UNIQUE INDEX `employeeUsername_UNIQUE` (`employeeUsername` ASC));
+
+CREATE TABLE `thecubanalounge_db`.`inventory`(
+`inventoryItemId` varchar(45),
+`inventoryItemName` varchar(45),
+`inventoryItemPrice` varchar(45),
+`inventoryItemCategory` varchar(45));
+
+CREATE TABLE `thecubanalounge_db`.`reservation` (
+`reservationFirstName` VARCHAR(100) NOT NULL,
+`reservationLastName` VARCHAR(100) NOT NULL,
+`reservationContactNumber` VARCHAR(100) NOT NULL,
+`reservationTime` VARCHAR(100) NOT NULL,
+`reservationDate` VARCHAR(100) NOT NULL,
+PRIMARY KEY (`reservationFirstName`, `reservationLastName`),
+UNIQUE INDEX `reservationContactNumber_UNIQUE` (`reservationContactNumber` ASC));
+
+CREATE TABLE `thecubanalounge_db`.`payment` (
+`paymentMethod` VARCHAR(45) NOT NULL,
+`paymentBalance` DOUBLE NOT NULL,
+`paymentPin` VARCHAR(45) NOT NULL);
+  
+
+CREATE TABLE `thecubanalounge_db`.`reward` (
+`rewardsMemberFirstName` VARCHAR(45) NOT NULL,
+`rewardsMemberLastName` VARCHAR(45) NOT NULL,
+`rewardsMemberCardNumber` VARCHAR(45) NOT NULL,
+PRIMARY KEY (`rewardsMemberCardNumber`));
+  
+CREATE TABLE `thecubanalounge_db`.`prize` (
+`prizeId` INT NOT NULL AUTO_INCREMENT,
+`prizeName` VARCHAR(45) NOT NULL,
+`prizePoints` INT NOT NULL,
+PRIMARY KEY (`prizeId`));
+
+3.Add Database Table Data:
+
+INSERT INTO employee (employeeId, employeeFirstName, employeeLastName, employeeGender, employeeContactNumber, employeePosition, employeeRole, employeeSalary, employeeUsername, employeePassword) VALUES ('1111111111111', 'Admin', 'Admin', 'Other', '123456789', 'CEO', 'Administrator', '25000.00', 'Admin', '1234');  
+
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('1001', 'Scrambled eggs and bacon', '30.00','Breakfast');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('1002', 'Breakfast Sandwhich', '30.00','Breakfast');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('1003', 'Omelette', '45.00','Breakfast');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('1004', 'Eggs Benedict', '65.00','Breakfast');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('1005', 'Farmstyle Breakfast', '60.00','Breakfast');
+
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('2001', 'Seared Fillets', '75.00','Mains');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('2002', 'T-Bone Steak', '75.00','Mains');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('2003', 'Ribeye Steak', '95.00','Mains');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('2004', 'Chicken Snitchzel', '70.00','Mains');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('2005', 'Prego Chicken with Salad', '75.00','Mains');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('2006', 'Deep Fried Nashville Chicken', '80.00','Mains');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('2007', 'Chicken Strips w/ Fries', '55.00','Mains');
+
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('3001','Beef Burger','60.00','Burgers');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('3002','Cheese Burger','65.00','Burgers');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('3003','Chicken Burger','60.00','Burgers');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('3004','Chedder-Melt Burger','70.00','Burgers');
+
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('4001', 'Plate of chips', '25.00','Sides');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('4002', 'Salad Bowl', '30.00','Sides');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('4003', 'Portion of Wings', '45.00','Sides');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('4004', 'Onion Rings', '25.00','Sides');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('4005', 'Bread Sticks', '20.00','Sides');
+
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('5001', 'Malva Pudding', '45.00','Desserts');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('5002', 'Chocolate Brownies', '45.00','Desserts');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('5003', 'Cheesecake', '35.00','Desserts');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('5004', 'Creme Brulee', '56.00','Desserts');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('5005', 'Ice-Cream', '25.00','Desserts');
+
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('6001', 'Juice', '20.00','Beverages');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('6002', 'Soft Drinks', '20.00','Beverages');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('6003', 'Milkshakes', '25.00','Beverages');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('6004', 'Coffee', '20.00','Beverages');
+INSERT INTO inventory (inventoryItemId, inventoryItemName, inventoryItemPrice, inventoryItemCategory) VALUES ('6005', 'Tea', '20.00','Beverages');
+
+INSERT INTO prize (prizeId, prizeName, prizePoints) VALUES ('1', '1 Free Breakfast', '4000');
+INSERT INTO prize (prizeId, prizeName, prizePoints) VALUES ('2', '1 Free Main', '7000');
+INSERT INTO prize (prizeId, prizeName, prizePoints) VALUES ('3', '1 Free Burger', '6500');
+INSERT INTO prize (prizeId, prizeName, prizePoints) VALUES ('4', '1 Free Side', '3000');
+INSERT INTO prize (prizeId, prizeName, prizePoints) VALUES ('5', '1 Free Dessert', '3500');
+INSERT INTO prize (prizeId, prizeName, prizePoints) VALUES ('6', '1 Free Beverage', '2500');
+INSERT INTO prize (prizeId, prizeName, prizePoints) VALUES ('7', '1 Free Toy', '1000');
+
+INSERT INTO payment (paymentMethod,paymentBalance,paymentPin) VALUES ('Credit','50000.00','1111');
+INSERT INTO payment (paymentMethod,paymentBalance,paymentPin) VALUES ('Debit','50000.00','2222');
+INSERT INTO payment (paymentMethod,paymentBalance,paymentPin) VALUES ('Voucher','50000.00','3333');
